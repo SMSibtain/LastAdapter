@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:context=".ui.MainActivity">
+    <data>
+        <variable
+                name="listener"
+                type="com.smsrn.lastadapter.util.GenericListener"/>
+    </data>
+
+    <LinearLayout
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+        <Button
+                android:layout_width="wrap_content"
+                android:onClick="@{()->listener.onSingleItemTapped()}"
+                android:text="@string/single_item_click"
+                android:layout_height="wrap_content"/>
+        <Button
+                android:layout_width="wrap_content"
+                android:onClick="@{()->listener.onMultipleItemTapped()}"
+                android:text="@string/multiple_item_click"
+                android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+</layout>

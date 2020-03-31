@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">LastAdapter</string>
+    <string name="single_item_click">Single Item Click</string>
+    <string name="multiple_item_click">Multiple Item Click</string>
+</resources>
