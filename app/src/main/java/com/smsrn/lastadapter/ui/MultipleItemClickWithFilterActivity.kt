@@ -1,10 +1,14 @@
 package com.smsrn.lastadapter.ui
 
+import android.app.SearchManager
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.view.Menu
 import android.widget.Toast
+import androidx.appcompat.widget.SearchView
 import androidx.databinding.DataBindingUtil
 import com.smsrn.lastadapter.R
 import com.smsrn.lastadapter.adapter.LastAdapter
@@ -25,16 +29,6 @@ class MultipleItemClickWithFilterActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_multiple_item_click_with_filter)
 
-        editTextFilter.addTextChangedListener(object : TextWatcher {
-            override fun afterTextChanged(s: Editable?) {}
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                if (::lastAdapter.isInitialized) {
-                    lastAdapter.filter.filter(s)
-                }
-            }
-        })
-
         // USE MENTION BELOW LINE IF YOU ONLY WANT TO SHOW THE LIST, NO EXECUTION REQUIRED ON USER TAP
         /*lastAdapter = LastAdapter(R.layout.recycler_item_multiple_filter)*/
 
@@ -52,5 +46,25 @@ class MultipleItemClickWithFilterActivity : AppCompatActivity() {
 
         recyclerView.adapter = lastAdapter
         lastAdapter.items = Utils.getGeneralFilterItemList()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_search_filter, menu)
+        val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
+        val searchView = menu?.findItem(R.id.action_search)?.actionView as SearchView
+        searchView.setSearchableInfo(searchManager.getSearchableInfo(componentName))
+        searchView.setIconifiedByDefault(true)
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextChange(newText: String): Boolean {
+                if (::lastAdapter.isInitialized && lastAdapter.items.size > 0)
+                    lastAdapter.filter.filter(newText)
+                return false
+            }
+
+            override fun onQueryTextSubmit(query: String): Boolean {
+                return false
+            }
+        })
+        return true
     }
 }
