@@ -22,6 +22,10 @@ class MainActivity : AppCompatActivity() {
             override fun onMultipleItemTapped() {
                 startActivity(Intent(this@MainActivity, MultipleItemClickActivity::class.java))
             }
+
+            override fun onMultipleItemFilterTapped() {
+                startActivity(Intent(this@MainActivity, MultipleItemClickWithFilterActivity::class.java))
+            }
         }
     }
 }

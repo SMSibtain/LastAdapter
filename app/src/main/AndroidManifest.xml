@@ -9,11 +9,13 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name="com.smsrn.lastadapter.ui.MultipleItemClickActivity">
+        <activity android:name=".ui.MultipleItemClickWithFilterActivity">
         </activity>
-        <activity android:name="com.smsrn.lastadapter.ui.SingleItemClickActivity">
+        <activity android:name=".ui.MultipleItemClickActivity">
         </activity>
-        <activity android:name="com.smsrn.lastadapter.ui.MainActivity">
+        <activity android:name=".ui.SingleItemClickActivity">
+        </activity>
+        <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 

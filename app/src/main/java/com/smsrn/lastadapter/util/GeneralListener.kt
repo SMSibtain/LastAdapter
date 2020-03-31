@@ -14,4 +14,9 @@ interface GenericListener {
      * When User Tap On Multiple Item Tapped
      */
     fun onMultipleItemTapped() {}
+
+    /**
+     * When User Tap On Multiple Item Filter Tapped
+     */
+    fun onMultipleItemFilterTapped() {}
 }

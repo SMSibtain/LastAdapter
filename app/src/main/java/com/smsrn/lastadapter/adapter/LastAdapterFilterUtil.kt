@@ -1,5 +1,7 @@
 package com.smsrn.lastadapter.adapter
 
+import com.smsrn.lastadapter.model.GeneralFilterItem
+
 /**
  * Generic RecyclerView Adapter Filter
  *
@@ -8,11 +10,12 @@ package com.smsrn.lastadapter.adapter
 object LastAdapterFilterUtil {
     fun <T> filterResult(item: T, charString: String): Boolean {
         when (item) {
-            /*is JobsVisitResponse -> {
-                if (item.accountPostcode.toString().contains(charString, ignoreCase = true))
+            is GeneralFilterItem -> {
+                if (item.firstValue.contains(charString, ignoreCase = true) ||
+                    item.secondValue.contains(charString, ignoreCase = true))
                     return true
                 return false
-            }*/
+            }
         }
         return true
     }

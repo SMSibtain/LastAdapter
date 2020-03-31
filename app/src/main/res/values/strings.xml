@@ -2,4 +2,6 @@
     <string name="app_name">LastAdapter</string>
     <string name="single_item_click">Single Item Click</string>
     <string name="multiple_item_click">Multiple Item Click</string>
+    <string name="multiple_item_click_with_filter">Multiple Item Click With Filter</string>
+    <string name="search_by_item">Search By Item</string>
 </resources>

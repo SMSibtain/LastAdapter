@@ -23,6 +23,13 @@
                 android:layout_width="wrap_content"
                 android:onClick="@{()->listener.onMultipleItemTapped()}"
                 android:text="@string/multiple_item_click"
+                android:layout_margin="20dp"
+                android:layout_height="wrap_content"/>
+
+        <Button
+                android:layout_width="wrap_content"
+                android:onClick="@{()->listener.onMultipleItemFilterTapped()}"
+                android:text="@string/multiple_item_click_with_filter"
                 android:layout_height="wrap_content"/>
 
     </LinearLayout>
